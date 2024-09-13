@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sistema de Productos</string>
+    <string name="subtitle">Manejo de Productos</string>
+    <string name="reference">Referencia</string>
+    <string name="description">Descripción</string>
+    <string name="price">Precio</string>
+    <string name="refType">Tipo de Producto</string>
+</resources>
