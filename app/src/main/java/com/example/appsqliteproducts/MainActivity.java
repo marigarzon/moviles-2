@@ -58,6 +58,39 @@ public class MainActivity extends AppCompatActivity {
         // Asignar el anterior adaptador al spinner
         refType.setAdapter(adpRefType);
         // Eventos de cada botón
+        search.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String mRef = reference.getText().toString();
+                if (!mRef.isEmpty()){
+                    if (searchReference(mRef).size()> 0){
+                        //Recuperar los datos del objeto oProduct
+                        description.setText(oProduct.getDescription());
+                        price.setText(String.valueOf(oProduct.getPrice()));
+                        switch (oProduct.getReftype()){
+                            case 0:
+                                refType.setSelection(0);
+                                break;
+                            case 1:
+                                refType.setSelection(1);
+                                break;
+                            case 2:
+                                refType.setSelection(2);
+                                break;
+                        }
+                    }
+                    else{
+                        message.setTextColor(Color.RED);
+                        message.setText("La referencia NO EXISTE. Intentelo con otra...");
+                    }
+
+                }
+                else{
+                    message.setTextColor(Color.RED);
+                    message.setText("Ingrese la referencia al buscar");
+                }
+            }
+        });
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
